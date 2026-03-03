@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pricing;
+option go_package = "./gen;pb";
+
+service PricingService {
+  rpc GetPrice(PriceRequest) returns (PriceResponse);
+}
+
+message PriceRequest {
+  string pickup_address = 1;
+  string destination_address = 2;
+  string user_id = 3;
+}
+
+message PriceResponse {
+  double price = 1;
+  string currency = 2;
+}
